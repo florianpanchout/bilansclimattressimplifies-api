@@ -66,12 +66,12 @@ exports.createEmission = [
 ]
 
 exports.updateEmission = [
-  body('poste').trim().isInt({ min: 1, max: 2 }).escape(),
-  body('type').trim().isLength({ min: 1 }).escape(),
-  body('bilan').trim().isLength({ min: 1 }).escape(),
-  body('localisation').trim().isLength({ min: 1 }).escape(),
-  body('valeur').trim().isFloat().escape(),
-  body('unite').trim().isLength({ min: 1 }).escape(),
+  body('poste').optional().trim().isInt({ min: 1, max: 2 }).escape(),
+  body('type').optional().trim().isLength({ min: 1 }).escape(),
+  body('bilan').optional().trim().isLength({ min: 1 }).escape(),
+  body('localisation').optional().trim().isLength({ min: 1 }).escape(),
+  body('valeur').optional().trim().isFloat().escape(),
+  body('unite').optional().trim().isLength({ min: 1 }).escape(),
   body('note')
     .optional({ checkFalsy: true })
     .trim()

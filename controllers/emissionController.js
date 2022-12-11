@@ -16,9 +16,9 @@ exports.getEmissions = function (req, res, next) {
 
 exports.createEmission = [
   body('poste').trim().isInt({ min: 1, max: 2 }).escape(),
-  body('type').trim().isLength({ min: 1 }).escape(),
+  body('type').trim().isLength({ min: 1 }),
   body('bilan').trim().isLength({ min: 1 }).escape(),
-  body('localisation').trim().isLength({ min: 1 }).escape(),
+  body('localisation').trim().isLength({ min: 1 }),
   body('valeur').trim().isFloat().escape(),
   body('unite').trim().isLength({ min: 1 }).escape(),
   body('note')
@@ -37,7 +37,6 @@ exports.createEmission = [
       emissionFactors[req.body.type].facteurs[req.body.localisation][
         'kgCO2e/' + req.body.unite
       ]
-
     const emission = new Emission({
       poste: req.body.poste,
       type: req.body.type,
